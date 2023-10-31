@@ -1,0 +1,25 @@
+{
+  "name": "subjekt",
+  "displayName": "Subjekt",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.83.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "subjekt",
+      "aliases": ["Subjekt", "subjekt"],
+      "extensions": [".subjekt"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "subjekt",
+      "scopeName": "main.subjekt",
+      "path": "./syntaxes/subjekt.tmLanguage.json"
+    }]
+  }
+}
