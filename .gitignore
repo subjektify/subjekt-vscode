@@ -1,0 +1,10 @@
+out
+node_modules
+build
+.coverage/
+.vscode-test/
+*.vsix
+**/.DS_Store
+.idea
+telemetryCache
+.smithy.lsp.log

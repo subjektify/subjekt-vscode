@@ -57,6 +57,22 @@
       }
     ]
   },
+  "snippets": [
+    {
+      "language": "subjekt",
+      "path": "./snippets.json"
+    }
+  ],
+  "commands": [
+    {
+      "command": "subjekt.runSelector",
+      "title": "Subjekt:Selector:Run"
+    },
+    {
+      "command": "subjekt.clearSelector",
+      "title": "Subjekt:Selector:Clear"
+    }
+  ],
   "dependencies": {
     "follow-redirects": "^1.15.6",
     "vscode-languageclient": "^8.1.0",
