@@ -1,6 +1,8 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Subjekt",
+	"scopeName": "source.subjekt",
+	"uuid": "2b1e7d52-88fc-4b3a-909e-1a5e5df2c49e",
 	"patterns": [
 		{
 			"include": "#keywords"
@@ -27,6 +29,5 @@
 				}
 			]
 		}
-	},
-	"scopeName": "source.subjekt"
+	}
 }

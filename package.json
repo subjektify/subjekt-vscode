@@ -1,25 +1,85 @@
 {
-  "name": "subjekt",
+  "name": "subjekt-vscode-extension",
   "displayName": "Subjekt",
-  "description": "",
+  "description": "Subjekt language support for Visual Studio Code",
   "version": "0.0.1",
+  "icon": "images/subjekt.png",
+  "license": "Apache-2.0",
+  "preview": true,
+  "publisher": "subjektify",
+  "main": "./out/src/extension",
+  "scripts": {
+    "vscode:prepublish": "npm run webpack-package",
+    "webpack-package": "webpack --mode production --devtool hidden-source-map",
+    "compile": "tsc -p ./",
+    "install-plugin": "npm run package && code --install-extension subjekt-vscode.vsix",
+    "package": "vsce package -o subjekt-vscode.vsix",
+    "format": "prettier --write '**/*.{ts,js,json,yml}'",
+    "format-check": "prettier --check '**/*.{ts,js,json,yml}'",
+    "test-grammar": "npx vscode-tmgrammar-test -g syntaxes/subjekt.tmLanguage.json 'tests/grammar/*'",
+    "test-extension": "npm run compile && npm run package && node ./out/tests/runTest.js",
+    "test": "npm run format-check && npm run test-grammar && npm run test-extension"
+  },
   "engines": {
     "vscode": "^1.83.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subjektify/subjekt-vscode.git"
+  },
   "categories": [
-    "Programming Languages"
+    "Programming Languages",
+    "Snippets"
   ],
   "contributes": {
-    "languages": [{
-      "id": "subjekt",
-      "aliases": ["Subjekt", "subjekt"],
-      "extensions": [".subjekt"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "subjekt",
-      "scopeName": "main.subjekt",
-      "path": "./syntaxes/subjekt.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "subjekt",
+        "aliases": [
+          "Subjekt",
+          "subjekt"
+        ],
+        "extensions": [
+          ".subjekt"
+        ],
+        "icon": {
+          "light": "images/subjekt-file-icon.png",
+          "dark": "images/subjekt-file-icon.png"
+        },
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "subjekt",
+        "scopeName": "source.subjekt",
+        "path": "./syntaxes/subjekt.tmLanguage.json"
+      }
+    ]
+  },
+  "dependencies": {
+    "follow-redirects": "^1.15.6",
+    "vscode-languageclient": "^8.1.0",
+    "vscode-nls": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/follow-redirects": "^1.14.4",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.4",
+    "@types/node": "^18.18.9",
+    "@types/sinon": "^10.0.20",
+    "@types/vscode": "^1.84.1",
+    "@vscode/test-electron": "^2.4.0",
+    "@vscode/vsce": "^2.22.0",
+    "glob": "^9.3.5",
+    "mocha": "^10.2.0",
+    "prettier": "^2.8.8",
+    "sinon": "^15.2.0",
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.2.2",
+    "vscode-nls-dev": "^4.0.4",
+    "vscode-tmgrammar-test": "^0.1.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   }
 }
