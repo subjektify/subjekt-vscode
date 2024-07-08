@@ -8,15 +8,54 @@
 			"include": "#keywords"
 		},
 		{
+			"include": "#traits"
+		},
+		{
+			"include": "#types"
+		},
+		{
 			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#brackets"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#punctuation"
+		},
+		{
+			"include": "#comments"
 		}
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.subjekt",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.subjekt",
+					"match": "\\b(metadata|use|member|key|value|state|behaviors|events|errors|input|output)\\b"
+				}
+			]
+		},
+		"traits": {
+			"patterns": [
+				{
+					"name": "keyword.control.trait.subjekt",
+					"match": "@[a-zA-Z0-9_]+"
+				}
+			]
+		},
+		"types": {
+			"patterns": [
+				{
+					"name": "storage.type.subjekt",
+					"match": "\\b(address|blob|boolean|byte|bytes|document|double|float|int|int8|int16|int32|int64|int128|int256|none|string|timestamp|uint|uint8|uint16|uint32|uint64|uint128|uint256|subject|behavior|event|error|enum|list|map|structure)\\b"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.subjekt",
@@ -26,6 +65,74 @@
 				{
 					"name": "constant.character.escape.subjekt",
 					"match": "\\\\."
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.subjekt",
+					"match": "\\b-?\\d*\\.?\\d+\\b"
+				}
+			]
+		},
+		"brackets": {
+			"patterns": [
+				{
+					"name": "punctuation.section.bracket.curly.subjekt",
+					"match": "[{}]"
+				},
+				{
+					"name": "punctuation.section.bracket.square.subjekt",
+					"match": "[\\[\\]]"
+				},
+				{
+					"name": "punctuation.section.bracket.round.subjekt",
+					"match": "[()]"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.assignment.subjekt",
+					"match": "="
+				},
+				{
+					"name": "keyword.operator.colon.subjekt",
+					"match": ":"
+				},
+				{
+					"name": "keyword.operator.hash.subjekt",
+					"match": "#"
+				},
+				{
+					"name": "keyword.operator.dollar.subjekt",
+					"match": "\\$"
+				}
+			]
+		},
+		"punctuation": {
+			"patterns": [
+				{
+					"name": "punctuation.separator.subjekt",
+					"match": ","
+				},
+				{
+					"name": "punctuation.terminator.subjekt",
+					"match": ";"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.subjekt",
+					"match": "//.*$"
+				},
+				{
+					"name": "comment.line.documentation.subjekt",
+					"match": "///.*$"
 				}
 			]
 		}

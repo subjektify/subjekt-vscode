@@ -13,7 +13,9 @@
     "webpack-package": "webpack --mode production --devtool hidden-source-map",
     "compile": "tsc -p ./",
     "install-plugin": "npm run package && code --install-extension subjekt-vscode.vsix",
+    "login": "vsce login subjektify",
     "package": "vsce package -o subjekt-vscode.vsix",
+    "publish:extension": "npm run package && vsce publish",
     "format": "prettier --write '**/*.{ts,js,json,yml}'",
     "format-check": "prettier --check '**/*.{ts,js,json,yml}'",
     "test-grammar": "npx vscode-tmgrammar-test -g syntaxes/subjekt.tmLanguage.json 'tests/grammar/*'",
@@ -21,7 +23,7 @@
     "test": "npm run format-check && npm run test-grammar && npm run test-extension"
   },
   "engines": {
-    "vscode": "^1.83.0"
+    "vscode": "^1.84.1"
   },
   "repository": {
     "type": "git",
